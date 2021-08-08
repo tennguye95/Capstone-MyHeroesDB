@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Super Hereos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <style>
+        .bg-header {
+            background-color: #ffffff!important;
+            border-bottom: 1px solid #f1f1f1;
+            padding: 20px 25px;
+            z-index: 12;
+            position: fixed;
+            width: 100%;
+            top:0;
+        }
+
+        .company-name{
+            color: rgb(35, 175, 198) !important;
+            font-size: 42px;
+            font-family: 'Lalezar', cursive;
+        }
+
+        .nav-link{
+            margin-right: 35px;
+            color: rgba(0, 0, 0, 0.5);
+        }
+        .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        .content{
+            margin-top: 175px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+
+        .label-tag{
+            background: #f8f8f8;
+            padding: 16px 12px;
+            border-radius: 5px;
+            font-size: 12px;
+            color: #12929f;
+            font-weight: 500;
+            width: 250px;
+            cursor: pointer;
+            margin-right: 20px;
+            border: 1px solid #f3f3f3;
+            margin-bottom: 20px;
+            display: inline-block;
+            white-space: nowrap;
+            text-align: center;
+            background-repeat: no-repeat;
+            background-size: 0 100%;
+
+
+        }
+
+        .label-tag:hover{
+            background: linear-gradient(to right, #000  , #000);
+            color: #fff;
+            background-size: 100% 100%;
+        }
+
+        .display-block{
+            display: block;
+        }
+
+        .display-inline-block{
+            display: inline-block;
+        }
+
+        .w-100{
+            width: 100%;
+        }
+
+        .side-nav{
+            background: #ffffff;
+            height: 100vh;
+            width: 250px;
+            box-shadow: 1px 1px 13px 6px #cccccc9e;
+            overflow: auto;
+            border-right: 3px solid #d6ff30;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            top: 103px;
+            z-index: 0;
+         }
+
+         .company-name{
+             color: #34f29a!important;
+         }
+
+         .header{
+             z-index: 0!important;
+         }
+
+         .list-of-items{
+             padding-top: 50px;
+             padding-left: 0px;
+         }
+
+        .list-of-items li {
+            margin-bottom: 20px;
+            list-style: none;
+            color: green;
+            padding: 15px;
+        }
+
+        .list-of-items li a{
+            color: #41e841;
+        }
+
+
+        ::-webkit-scrollbar {
+            width: 1px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .content{
+            margin-left: 300px;
+            margin-top: 175px!important;
+        }
+
+        .sedhi-lo{
+            padding: 0px;
+        }
+
+        .sedhi-lo li{
+            display: inline-block;
+            border: 1px solid #ccc;
+            vert-align: middle;
+            padding: 4px 15px;
+            cursor: pointer;
+        }
+
+        .sedhi-lo li:hover{
+            color: #000000;
+            background: #00b01d;
+        }
+
+        .sedhi-lo li:hover a{
+            color: #000000;
+            background: #00b01d;
+        }
+
+        .eh1{
+            font-size: 48px;
+            font-weight: bold;
+            color: #000;
+            margin-top: 40px;
+        }
+
+        .img-set{
+            margin: 50px auto;
+            width: 40%;
+            height: 40%;
+            object-fit: cover;
+        }
+
+        .ep{
+            margin-top: 20px;
+            margin-bottom: 30px;
+            width: 95%;
+        }
+
+        .active-top{
+            background: #00b01d!important;
+            color: #000000!important;
+        }
+
+        .active-a{
+            color: #000000;
+        }
+
+        .active-side-nav{
+            background-color: #00b30f;
+            cursor: pointer;
+            color: #fff!important;
+        }
+
+        .active-side-nav a{
+            color: #fff!important;
+        }
+
+        .list-of-items-li:hover{
+            background-color: #00b30f;
+            cursor: pointer;
+            color: #00b30f;
+        }
+
+        .list-of-items-li:hover a{
+            color: #fff;
+        }
+
+        .heading{
+            background-color: #f5f7f5;
+            color: #000!important;
+        }
+
+        .star {
+            float : right;
+        }
+
+        .fa-star:hover {
+            color: yellow;
+        }
+        .search {
+          width: 100%;
+          position: relative;
+          display: flex;
+        }
+
+        .searchTerm {
+          width: 90%;
+          border: 3px solid #00b30f;
+          border-right: none;
+          padding: 0px;
+          height: 40px;
+          border-radius: 5px 0 0 5px;
+          outline: none;
+          color: #000000;
+        }
+
+        .searchTerm:focus{
+          color: #000000;
+        }
+
+        .searchButton {
+          width: 40px;
+          height: 40px;
+          border: 1px solid #00b30f;
+          background: #00b30f;
+          text-align: center;
+          color: #fff;
+          border-radius: 0 5px 5px 0;
+          cursor: pointer;
+          font-size: 20px;
+        }
+
+        /*Resize the wrap to see the search bar change!*/
+        .wrap{
+          width: 30%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+    </style>
+
+</head>
+{% block content %}
+
+<body>
+<section class="header">
+<nav class="navbar navbar-expand-lg navbar-light bg-header">
+    <a class="navbar-brand company-name" href="#">MyHeroesDB</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+        <ul class="navbar-nav pull-right text-right display-block w-100">
+
+            <li class="nav-item active display-inline-block">
+                <a class="nav-link display-inline-block" href="{{ url_for('index') }}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item display-inline-block">
+                <a class="nav-link display-inline-block" href="#">About</a>
+            </li>
+            <li class="nav-item display-inline-block">
+                <a class="nav-link display-inline-block" href="{{ url_for('search') }}">Search</a>
+            </li>
+            <li class="nav-item display-inline-block">
+                <a class="nav-link display-inline-block" href="{{ url_for('logout') }}">Logout</a>
+            </li>
+        </ul>
+
+    </div>
+</nav>
+</section>
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+               <ul class="sedhi-lo">
+                   {% if superhero1 %}
+                       {% for t in tabs %}
+                           {% if t == tab %}
+                                 <li class="active-top"> <a class="active-a" href="{{ url_for('compare', tab=t, hero1=superhero1.id, hero2=superhero2.id) }}">{{t}}</a></li>
+                           {% else %}
+                                <li> <a href="{{ url_for('compare', tab=t, hero1=superhero1.id, hero2=superhero2.id) }}">{{t}}</a></li>
+                           {% endif %}
+                       {% endfor %}
+                   {% endif %}
+               </ul>
+            </div>
+        </div>
+    </div>
+
+        <form>
+            <div class="row">
+                <div class="col-md-2">
+             <select name = "hero1" class="form-control form-control-inline" >
+                 {% for hero in super_heroes %}
+
+                    {% if hero.id|string == superhero1.id|string %}
+                        <option value = "{{hero.id}}" selected> {{hero.name}} </option>
+                    {% else %}
+                        <option value = "{{hero.id}}"> {{hero.name}} </option>
+                    {% endif %}
+                 {% endfor %}
+             </select>
+             </div>
+                <div class="col-md-2">
+                <select name = "hero2" class="form-control form-control-inline">
+                    {% for hero in super_heroes %}
+                        {% if hero.id|string == superhero2.id|string %}
+                        <option value = "{{hero.id}}" selected> {{hero.name}} </option>
+                    {% else %}
+                        <option value = "{{hero.id}}"> {{hero.name}} </option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+                </div>
+                <button type="submit" class="btn btn-success">Compare</button>
+            </div>
+        </form>
+
+    {% if superhero2 %}
+        <div class="row">
+            <div class="col-md-4">
+                <h1 class="eh1">
+                    {{superhero1.name}}
+                </h1>
+                <img src="{{superhero1.image.url}}" alt="" class="img-set">
+
+             <p class="ep">
+                 {% for key, value in tab_data1.items() %}
+                 <b>{{key}}</b> : {{value}}
+                    <br>
+                 {% endfor %}
+             </p>
+            </div>
+
+            <div class="col-md-4">
+                <h1 class="eh1">
+                    {{superhero2.name}}
+                </h1>
+                <img src="{{superhero2.image.url}}" alt="" class="img-set">
+
+             <p class="ep">
+                 {% for key, value in tab_data2.items() %}
+                 <b>{{key}}</b> : {{value}}
+                    <br>
+                 {% endfor %}
+             </p>
+            </div>
+
+        </div>
+    {% endif %}
+</section>
+</body>
+{% endblock content %}
+</html>
